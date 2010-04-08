@@ -1,0 +1,44 @@
+#maincontent
+  #header
+    %img{:src=>'http://a0.twimg.com/a/1270167579/images/twitter_logo_header.png'}
+
+  #profileinfo
+    %div{:class=>'profile profiletemplate'}
+      %img{:src=>'http://a3.twimg.com/profile_images/711611677/dotssquare_normal.png'}
+      %div{:class=>'name'}= 'robrighter'
+      %div{:class=>'box selected'}
+        %span{:class=>'following count'}= '642'
+        %br
+        %span= 'Following'
+      %div{:class=>'box'}	
+        %span{:class=>'followers count'}= '365'  
+        %br
+        %span= 'Followers'
+      %div{:class=>'box'}  
+        %span{:class=>'followbacks count'}= '201'
+        %br
+        %span= 'Followbacks'
+      %div{:class=>'box'}  
+        %span{:class=>'fans count'}= '345'
+        %br
+        %span= 'Fans'
+      %div{:class=>'box'}  
+        %span{:class=>'nofollowback count'}= '345'
+        %br
+        %span= 'No Followback'
+      %div{:class=>'tabline kill'}= ' '
+
+
+  #userlist
+    %div{:class=>'user template'}
+      %img{:src=>'http://a1.twimg.com/profile_images/79569518/eagle_bigger.jpg'}
+      %div{:class=>'name'}
+        %a{:href=>'#'}= 'montytwitter'
+      %div{:class=>'following'}
+        %span= 'following: '
+        %span{:class=>'count'}= '245'
+      %div{:class=>'followers'}
+        %span= 'followers: '
+        %span{:class=>'count'}= '333'
+      %div{:class=>'button'}= 'Stop Following'
+    %div{:style=>'clear:all;'}
