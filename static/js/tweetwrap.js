@@ -15,7 +15,7 @@ var tweetWrap = function (screenname, initcallback){
     
     var getFollowers = function (cursor){
         $.ajax({
-            'url': 'http://api.twitter.com/1/statuses/followers.json?callback=?&cursor='+cursor,
+            'url': ('http://api.twitter.com/1/statuses/followers.json?callback=?&screen_name='+ that.userscreenname +'&cursor='+cursor),
             success: function(result) {
                 console.log(result);
                 console.log("Followers recieved: "+ result.users.length +" users and a cursor of: " + result.next_cursor);
@@ -34,7 +34,7 @@ var tweetWrap = function (screenname, initcallback){
     
     var getFollowing = function (cursor){
         $.ajax({
-            'url': 'http://api.twitter.com/1/statuses/friends.json?callback=?&cursor='+cursor,
+            'url': ('http://api.twitter.com/1/statuses/friends.json?callback=?&screen_name='+ that.userscreenname + '&cursor=' + cursor),
             success: function(result) {
                 console.log(result);
                 console.log("Following recieved: "+ result.users.length +" users and a cursor of: " + result.next_cursor);
@@ -77,7 +77,7 @@ var tweetWrap = function (screenname, initcallback){
            }
         });
         
-        $.getJSON('http://api.twitter.com/1/users/show.json?callback=?&screen_name='+this.userscreenname,function(data){
+        getUserDetailByScreenName(that.userscreenname,function(data){
             that.personalprofile = data;
             console.log('Recieved the UserProfile:');
             console.log(that.personalprofile);
@@ -89,15 +89,16 @@ var tweetWrap = function (screenname, initcallback){
     
     
     
-    this.getFollowersByUserId = function (userid, callback){
+    var getFollowersByUserId = function (userid, callback){
         $.getJSON('http://api.twitter.com/1/followers/ids.json?callback=?&user_id='+userid, callback);
     }
     
-    this.getUserDetailByScreenName = function (screenname, callback){
+    var getUserDetailByScreenName = function (screenname, callback){
+        console.log('http://api.twitter.com/1/users/show.json?callback=?&screen_name='+screenname);
         $.getJSON('http://api.twitter.com/1/users/show.json?callback=?&screen_name='+screenname,callback);
     }
     
-    this.getUserDetailByUserId = function (userid, callback){
+    var getUserDetailByUserId = function (userid, callback){
         $.getJSON('http://api.twitter.com/1/users/show.json?callback=?&user_id='+userid,callback);
     }
     

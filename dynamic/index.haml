@@ -1,31 +1,36 @@
 #maincontent
   #header
-    %img{:src=>'http://a0.twimg.com/a/1270167579/images/twitter_logo_header.png'}
+    %img{:src=>'/images/logo.png',:id=>'logo'}
+    %div{:class=>'followus'}
+      %a{:href=>'http://www.twitter.com/friendagon'}
+        %img{:src=>'http://twitter-badges.s3.amazonaws.com/t_logo-b.png'}
+      %a{:href=>'http://www.twitter.com/friendagon'}
+        %span= 'follow us'
 
   #profileinfo
-    %div{:class=>'profile profiletemplate'}
-      %img{:src=>'http://a3.twimg.com/profile_images/711611677/dotssquare_normal.png'}
-      %div{:class=>'name'}= 'robrighter'
-      %div{:class=>'box selected'}
-        %span{:class=>'following count'}= '642'
-        %br
-        %span= 'Following'
-      %div{:class=>'box'}	
-        %span{:class=>'followers count'}= '365'  
-        %br
-        %span= 'Followers'
-      %div{:class=>'box'}  
-        %span{:class=>'followbacks count'}= '201'
-        %br
-        %span= 'Followbacks'
-      %div{:class=>'box'}  
-        %span{:class=>'fans count'}= '345'
-        %br
-        %span= 'Fans'
-      %div{:class=>'box'}  
-        %span{:class=>'nofollowback count'}= '345'
+    %div{:class=>'profile'}
+      %img{:src=>'/images/spinner.gif'}
+      %div{:class=>'name'}= 'Loading...'
+      %div{:class=>'box nofollowback selected'}  
+        %span{:class=>'count'}= '0'
         %br
         %span= 'No Followback'
+      %div{:class=>'box followbacks'}  
+        %span{:class=>'count'}= '0'
+        %br
+        %span= 'Followbacks'
+      %div{:class=>'box fans'}  
+        %span{:class=>'count'}= '0'
+        %br
+        %span= 'Fans'
+      %div{:class=>'box following'}
+        %span{:class=>'count'}= '0'
+        %br
+        %span= 'Following'
+      %div{:class=>'box followers'}	
+        %span{:class=>'count'}= '0'  
+        %br
+        %span= 'Followers'
       %div{:class=>'tabline kill'}= ' '
 
 
