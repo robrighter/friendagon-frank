@@ -1,0 +1,35 @@
+body {
+  color: #dddddd;
+  font-family: Helvetica, Arial;
+  font-size: 14px;
+  line-height: 20px;
+  background: #000 url(http://s.twimg.com/a/1269553143/images/themes/theme14/bg.gif); }
+
+#header {
+  margin-bottom: 10px; }
+
+h1 {
+  margin: 0 0 10px;
+  font: bold 72px Helvetica, Arial; }
+
+h2 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 32px;
+  color: #cecece; }
+
+em {
+  color: #4D9EEF;
+  font-family: Inconsolata, Monaco, monospace;
+  font-style: normal; }
+
+.template {
+  display: none; }
+
+.user {
+  float: left;
+  width: 200px;
+  background-color: #696969;
+  padding: 5px;
+  border: 2px solid white;
+  margin: 1px; }
