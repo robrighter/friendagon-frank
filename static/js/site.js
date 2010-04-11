@@ -1,3 +1,4 @@
+//50506
 var tw;
 
 var insertUser = function (user){
@@ -40,7 +41,7 @@ var replaceList = function(list){
 }
 
 $(document).ready(function() {
-   tw = new tweetWrap('chattanoogatwit', function(){
+   tw = new tweetWrap('robrighter', function(){
        populateList(tw.toogoodforme);
        setProfile(tw.personalprofile);
    });
