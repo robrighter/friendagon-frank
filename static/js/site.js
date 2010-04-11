@@ -41,7 +41,7 @@ var replaceList = function(list){
 }
 
 $(document).ready(function() {
-   tw = new tweetWrap('robrighter', function(){
+   tw = new tweetWrap(theuser, function(){
        populateList(tw.toogoodforme);
        setProfile(tw.personalprofile);
    });
