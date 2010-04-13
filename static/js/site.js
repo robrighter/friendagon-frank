@@ -8,7 +8,7 @@ var insertUser = function (user){
     template.find('img').attr('src' ,user.profile_image_url);
     template.find('.following .count').html(user.friends_count);
     template.find('.followers .count').html(user.followers_count);
-    $(template).appendTo('#userlist').hide().removeClass('template').addClass('added').slideDown('slow');
+    $(template).appendTo('#userlist').hide().removeClass('template').addClass('added').show();
 }
 
 var setProfile = function(user){
@@ -28,9 +28,12 @@ var clearList = function() {
 }
 
 var populateList = function(list){
+    $('#userlist').hide();
     _.map(list,function(item){
               insertUser(item);
     });
+    setTimeout("$('#userlist').slideDown('slow');",1);
+    
 }
 
 var replaceList = function(list){
@@ -69,6 +72,10 @@ $(document).ready(function() {
    $('.profile .nofollowback').bind('click', function() {
      replaceList(tw.toogoodforme);
      $('.profile .nofollowback').addClass('selected');
+   });
+   
+   $('#homesearch .go').bind('click', function() {
+        window.location = '/' + $('#homesearch input').val();
    });   
    
  });
