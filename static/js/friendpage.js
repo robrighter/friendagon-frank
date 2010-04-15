@@ -9,7 +9,7 @@ $(document).ready(function() {
        console.log("Progress: " + progress + " Status: " + status);
    },
    function(error){
-       alert(error);
+       showError(error);
    });
    
    $('.profile .following').bind('click', function() {

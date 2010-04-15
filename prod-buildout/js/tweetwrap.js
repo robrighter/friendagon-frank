@@ -18,9 +18,13 @@ var tweetWrap = function (screenname, initcallback, notifyprogress, abandon){
     var that = this;
     
     var getFollowers = function (cursor){
+        var timeout = setTimeout(function(){ 
+             that.abandoncallback('The Twitter API is currently unavailable from your location. Please try again later.')}
+             ,5000);
         $.ajax({
             'url': ('http://api.twitter.com/1/statuses/followers.json?callback=?&screen_name='+ that.userscreenname +'&cursor='+cursor),
             success: function(result) {
+                clearTimeout(timeout);
                 if(result.error){
                     that.abandoncallback(result.error);
                 }
@@ -38,13 +42,14 @@ var tweetWrap = function (screenname, initcallback, notifyprogress, abandon){
         });
     }
     
-    var getFollowing = function (cursor){
+    var getFollowing = function (cursor){  
+        var timeout = setTimeout(function(){ 
+             that.abandoncallback('The Twitter API is currently unavailable from your location. Please try again later.')}
+             ,5000);
         $.ajax({
             'url': ('http://api.twitter.com/1/statuses/friends.json?callback=?&screen_name='+ that.userscreenname + '&cursor=' + cursor),
             success: function(result) {
-                if(result.error){
-                    that.abandoncallback(result.error);
-                }
+                clearTimeout(timeout);
                 console.log(result);
                 console.log("Following recieved: "+ result.users.length +" users and a cursor of: " + result.next_cursor);
                 progress += pageProgressPercentage(parseInt(that.personalprofile.friends_count));
@@ -109,8 +114,18 @@ var tweetWrap = function (screenname, initcallback, notifyprogress, abandon){
     }
     
     var getUserDetailByScreenName = function (screenname, callback){
+         var diderror = true;
+         var timeout = setTimeout(function(){ 
+             that.abandoncallback('Either the user does not exist or the Twitter API is unavailable. Please try again later.')}
+             ,5000);
+             
+         $.ajax({
+                'url': ('http://api.twitter.com/1/users/show.json?callback=?&screen_name='+screenname),
+                success: function(data){ clearTimeout(timeout); callback(data);},
+                dataType:'json'
+            });
         console.log('You are here: http://api.twitter.com/1/users/show.json?callback=?&screen_name='+screenname);
-        $.getJSON('http://api.twitter.com/1/users/show.json?callback=?&screen_name='+screenname,callback);
+        //$.getJSON('http://api.twitter.com/1/users/show.json?callback=?&screen_name='+screenname,callback);
     }
     
     var getUserDetailByUserId = function (userid, callback){

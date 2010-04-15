@@ -37,6 +37,9 @@
         %span= 'Followers'
       %div{:class=>'tabline kill'}= ' '
 
+  #errorbox
+    %span= ''
+
   #progressbox
     #progressoutline
       #progressbar
@@ -54,5 +57,7 @@
       %div{:class=>'followers'}
         %span= 'followers: '
         %span{:class=>'count'}= '333'
-      %div{:class=>'button'}= 'Stop Following'
+      %div{:class=>'followtoggle'}
+        %div{:class=>'button'}= '+'
+        %div{:class=>'button'}= '-'
     %div{:style=>'clear:all;'}

@@ -47,3 +47,12 @@ var setStatusBar = function(percent, message){
     $('#progressbar').css('width', (percent+'%'));
     $('#progressstatus span').html( (message || '') );
 }
+
+var showError = function(error){
+    var profile = $('.profile');
+    profile.find('.name').html(theuser);
+    profile.find('img').attr('src' ,'/images/fail-avatar.png');
+    $('#errorbox span').html(error);
+    $('#progressbox').slideUp('slow');
+    $('#errorbox').slideDown('slow');
+}

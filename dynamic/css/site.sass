@@ -1,9 +1,24 @@
+//variables
+!green = #90D55C
+!textgreen = #58B33F
+
+
+//mixins
+=borderRadius(!radius = 5px)	
+  -moz-border-radius = !radius
+  -webkit-border-radius = !radius
+  -khtml-border-radius = !radius
+  border-radius = !radius
+
 body
   color: #dddddd
   font-family: Helvetica, Arial
   font-size: 14px
   line-height: 20px
   background: #C0DEED url(http://s.twimg.com/a/1270236195/images/themes/theme1/bg.png) repeat-x
+
+a img
+  border: 0px
 
 #header
   margin-bottom: 10px
@@ -66,12 +81,12 @@ em
 #profileinfo
   background: white
   padding: 5px
-  border-radius: 5px
   height: 54px
   overflow: hidden
   margin-bottom: 30px
   margin-left: 8px
   margin-right: 8px
+  +borderRadius(5px)
 
 .profile
   color: #666666
@@ -80,21 +95,21 @@ em
   float: left
   width: 50px
   height: 50px
-  border-radius: 2px
+  +borderRadius(2px)
 
 .profile .name
-  font-size: 22px
+  font-size: 20px
   float: left
   margin-top: 15px
   margin-left: 7px
   width: 160px
-  height: 30px
+  height: 34px
   overflow: hidden
 
 .user
   background: white
   padding: 5px
-  border-radius: 5px
+  +borderRadius(5px)
   float: left
   width: 367px
   height: 50px
@@ -108,7 +123,7 @@ em
   margin-top: 3px
 
 .user .name a
-  color: #58B33F
+  color = !textgreen
   font-weight: bold
   text-decoration: none
   text-size: 19px
@@ -118,7 +133,7 @@ em
   width: 50px
   height: 50px
   margin-right: 10px
-  border-radius: 2px
+  +borderRadius(2px)
 
 .user .following, .user .followers
   font-size: 12px
@@ -130,26 +145,28 @@ em
   margin-left: 5px
   padding-left: 5px
 
-.user .button
+.user .followtoggle
   position: absolute
+  margin-left: 260px
+  margin-top: -12px
+  width: 90px
+
+.user .button
+  margin-right: 5px
   height: 20px
   background-color: #cccccc
   text-align: center
-  margin-left: 260px
-  margin-top: -12px
-  width: 85px
+  width: 30px
   font-weight: bold
-  border-radius: 5px
+  +borderRadius(5px)
   padding: 5px
   cursor: pointer  
-  font-size: 12px
+  font-size: 15px
   color: #ffffff
+  float: left
 
 .user .button:hover
   background-color: #90D55C
-
-
-  
 
 .box
   float: left
@@ -160,7 +177,7 @@ em
   width: 85px
   font-size: 8px
   font-weight: bold
-  border-radius: 5px
+  +borderRadius(5px)
   //color: #2E989F
   color: #000000
   margin-top: 8px
@@ -174,10 +191,12 @@ em
   color: #ffffff
 
 .profile .selected, .box:hover
-  background-color: #90D55C
+  background-color = !green
+  //background-color: #90D55C
 
 .tabline
-  background-color: #90D55C
+  background-color = !green
+  //background-color: #90D55C
   position: absolute
   margin-top: 54px
   margin-left: -5px
@@ -207,12 +226,12 @@ em
   color: #2377BB
   font-size: 24px
   border: 3px solid #8EC1DA 
-  border-radius: 5px
+  +borderRadius(5px)
 
 #homesearch .go
   background-color: #2377BB
   color: #ffffff
-  border-radius: 5px
+  +borderRadius(5px)
   width: 40px
   height: 26px
   text-align: center
@@ -230,6 +249,7 @@ em
   background-color: #90D55C
 
 #recent
+  display: none
   width: 610px
   margin-left: auto
   margin-right: auto
@@ -255,7 +275,7 @@ em
   width: 35px
   height: 35px
   float: left
-  border-radius: 3px
+  +borderRadius(3px)
   margin-right: 5px
 
 #recent .item .stats
@@ -276,15 +296,24 @@ em
   font-weight: bold
   text-decoration: none
 
-#progressbox
+#progressbox, #errorbox
   background: white
   padding: 5px
-  border-radius: 5px
+  +borderRadius(5px)
   height: 54px
   margin-bottom: 30px
   margin-left: 8px
   margin-right: 8px
 
+#errorbox
+  display: none
+  text-align: center
+
+#errorbox span
+  display: block
+  color: #B90908
+  font-size: 13px
+  margin-top: 15px
 
 #progressoutline
   width: 735px
@@ -294,7 +323,8 @@ em
   margin-top: 10px
   margin-bottom: 0px
   background-color: #cccccc
-  border: 2px solid #90D55C
+  border: 2px solid
+  border-color = !green
   overflow: hidden
 
 #progressbar
@@ -302,7 +332,7 @@ em
   height: 20px
   margin: 0
   border-right: 1px solid #fff
-  background-color: #90D55C
+  background-color = !green
 
 #progressstatus
   color: #666666
