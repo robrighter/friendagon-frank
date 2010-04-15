@@ -42,3 +42,8 @@ var replaceList = function(list){
     populateList(list);
     $('.profile').find('img').attr('src' ,tw.personalprofile.profile_image_url);
 }
+
+var setStatusBar = function(percent, message){
+    $('#progressbar').css('width', (percent+'%'));
+    $('#progressstatus span').html( (message || '') );
+}

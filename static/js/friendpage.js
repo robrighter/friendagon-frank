@@ -2,6 +2,14 @@ $(document).ready(function() {
    tw = new tweetWrap(theuser, function(){
        populateList(tw.toogoodforme);
        setProfile(tw.personalprofile);
+       $('#progressbox').slideUp('slow');
+   },
+   function(progress, status){
+       setStatusBar(progress, status);
+       console.log("Progress: " + progress + " Status: " + status);
+   },
+   function(error){
+       alert(error);
    });
    
    $('.profile .following').bind('click', function() {
