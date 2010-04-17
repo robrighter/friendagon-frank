@@ -6,7 +6,6 @@ $(document).ready(function() {
    },
    function(progress, status){
        setStatusBar(progress, status);
-       console.log("Progress: " + progress + " Status: " + status);
    },
    function(error){
        showError(error);

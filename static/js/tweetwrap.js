@@ -50,8 +50,6 @@ var tweetWrap = function (screenname, initcallback, notifyprogress, abandon){
             'url': ('http://api.twitter.com/1/statuses/friends.json?callback=?&screen_name='+ that.userscreenname + '&cursor=' + cursor),
             success: function(result) {
                 clearTimeout(timeout);
-                console.log(result);
-                console.log("Following recieved: "+ result.users.length +" users and a cursor of: " + result.next_cursor);
                 progress += pageProgressPercentage(parseInt(that.personalprofile.friends_count));
                 that.following = that.following.concat(result.users);
                 that.notifyprogresscallback(progress,"Following recieved: "+ that.following.length);
@@ -103,8 +101,6 @@ var tweetWrap = function (screenname, initcallback, notifyprogress, abandon){
        if(percentperpage > 1){
            percentperpage = 1;
        }
-       
-       console.log('CHECK IT=> ' + (percentperpage*basepercent));
        return percentperpage*basepercent;
    }
     
@@ -124,12 +120,16 @@ var tweetWrap = function (screenname, initcallback, notifyprogress, abandon){
                 success: function(data){ clearTimeout(timeout); callback(data);},
                 dataType:'json'
             });
-        console.log('You are here: http://api.twitter.com/1/users/show.json?callback=?&screen_name='+screenname);
-        //$.getJSON('http://api.twitter.com/1/users/show.json?callback=?&screen_name='+screenname,callback);
     }
     
     var getUserDetailByUserId = function (userid, callback){
         $.getJSON('http://api.twitter.com/1/users/show.json?callback=?&user_id='+userid,callback);
+    }
+    
+    this.unfollowByScreenName = function(screenname, callback){
+        
+            //'url': ("http://api.twitter.com/1/friendships/destroy/" + screenname + '.json'),
+            
     }
     
     var init = function(){
@@ -138,8 +138,6 @@ var tweetWrap = function (screenname, initcallback, notifyprogress, abandon){
                 that.abandoncallback(data.error);
             }
             that.personalprofile = data;
-            console.log('Recieved the UserProfile:');
-            console.log(that.personalprofile);
             getFollowers(-1);
         });
     };

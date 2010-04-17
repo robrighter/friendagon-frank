@@ -13,7 +13,8 @@
     %img{:src=>'/images/logo.png',:id=>'logo'}
     %div{:class=>'instructions'}
       %span{:class=>'prompt'}= "Twitter Screen Name:"
-      %input{:type=>'text',id=>'q'}
+      %form{:id=>'searchform'}
+        %input{:type=>'text',id=>'q'}
       %div{:class=>'go'}= "GO"
  
   %div{:class=>'kill'}
