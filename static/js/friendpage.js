@@ -36,5 +36,9 @@ $(document).ready(function() {
      $('.profile .nofollowback').addClass('selected');
    });
    
+   twttr.anywhere(function (T) {
+       T('#wrapper').connectButton({ size: "large" });
+    });
+   
  });
  

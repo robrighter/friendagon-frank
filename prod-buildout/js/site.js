@@ -9,7 +9,7 @@ var insertUser = function (user){
     template.find('.following .count').html(user.friends_count);
     template.find('.followers .count').html(user.followers_count);
     template.find('.minus').attr('onClick','tw.unfollowByScreenName("'+ user.screen_name +'",function() {alert("Unfollowed '+ user.screen_name +'");});');
-    $(template).appendTo('#userlist').hide().removeClass('template').addClass('added').show();
+    $(template).appendTo('#userlist').hide().removeClass('template').addClass('added').addClass('userclass' + user.screen_name).show();
 }
 
 var setProfile = function(user){
