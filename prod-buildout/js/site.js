@@ -26,11 +26,13 @@ var setProfile = function(user){
 var unfollow = function(screenname,callback){
     
     $.getJSON('/__unfollow?screen_name='+screenname, function(data){
-        
+        console.log(data);
         if(data.error){
+            console.log('The user is NOT authenticated');
             authenticate();
         }
         else{
+            console.log('SUCCESS!!!!');
             callback();
         }
     });
