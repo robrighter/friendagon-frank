@@ -8,7 +8,7 @@ var insertUser = function (user){
     template.find('img').attr('src' ,user.profile_image_url);
     template.find('.following .count').html(user.friends_count);
     template.find('.followers .count').html(user.followers_count);
-    template.find('.minus').attr('onClick','tw.unfollowByScreenName("'+ user.screen_name +'",function() {alert("Unfollowed '+ user.screen_name +'");});');
+    template.find('.minus').attr('onClick','unfollow("'+ user.screen_name +'",function() {alert("Unfollowed '+ user.screen_name +'");});');
     $(template).appendTo('#userlist').hide().removeClass('template').addClass('added').addClass('userclass' + user.screen_name).show();
 }
 
@@ -22,6 +22,23 @@ var setProfile = function(user){
     profile.find('.fans .count').html(tw.fans.length);
     profile.find('.nofollowback .count').html(tw.toogoodforme.length);
 };
+
+var unfollow = function(screenname,callback){
+    
+    $.getJSON('/__unfollow?screen_name='+screenname, function(data){
+        
+        if(data.error){
+            authenticate();
+        }
+        else{
+            callback();
+        }
+    });
+}
+
+var authenticate = function(){
+    win = window.open('./oauth','Connect with Twitter','menubar=no,location=no,resizable=yes,scrollbars=yes,status=yes,width=800,height=400');
+}
 
 var clearList = function() {
     $('.added').remove();
