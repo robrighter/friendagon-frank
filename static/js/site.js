@@ -8,7 +8,7 @@ var insertUser = function (user){
     template.find('img').attr('src' ,user.profile_image_url);
     template.find('.following .count').html(user.friends_count);
     template.find('.followers .count').html(user.followers_count);
-    template.find('.minus').attr('onClick','unfollow("'+ user.screen_name +'",function() {alert("Unfollowed '+ user.screen_name +'");});');
+    template.find('.minus').attr('onClick','unfollow("'+ user.screen_name +'",function() {notifyUnfollowed("'+user.screen_name+'");});');
     $(template).appendTo('#userlist').hide().removeClass('template').addClass('added').addClass('userclass' + user.screen_name).show();
 }
 
@@ -32,6 +32,12 @@ var unfollow = function(screenname,callback){
             callback();
         }
     });
+}
+
+var notifyUnfollowed = function(screen_name){
+    $('.userclass' + screen_name).find('.notify').html('- Unfollowed');
+    $('.userclass' + screen_name).addClass('unfolloweduser');
+    $('.userclass' + screen_name + ' .name a').css('color', '#7C1316');
 }
 
 var authenticate = function(){
