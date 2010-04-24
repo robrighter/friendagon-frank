@@ -61,3 +61,13 @@
         %div{:class=>'button add'}= '+'
         %div{:class=>'button minus',:onClick=>'tw.unfollowByScreenName("montytwitter",alert("Done."));'}= '-'
     %div{:style=>'clear:all;'}
+
+  #authbox
+    %h1 Please sign in with Twitter
+    %p Please click on the button below to sign in to Friendagon via Twitter.
+    %div{:class=>'cancellink'}
+      %a{:onClick=>'hideAuthenticate();return false;'}= 'Cancel'
+      %span= ' or'
+    %a{:onClick=>'openAuthenticateBox();return false;',:href=>"#"}
+      %img{:src=>'http://apiwiki.twitter.com/f/1242697715/Sign-in-with-Twitter-darker.png'}
+    

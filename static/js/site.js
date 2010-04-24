@@ -24,23 +24,29 @@ var setProfile = function(user){
 };
 
 var unfollow = function(screenname,callback){
+    authenticate();
     $.getJSON('/__unfollow?screen_name='+screenname, function(data){
-        window.open('./oauth','Connect with Twitter','menubar=no,location=no,resizable=yes,scrollbars=yes,status=yes,width=800,height=400');
-        console.log(data);
         if(data.error){
-            console.log('The user is NOT authenticated');
             authenticate();
         }
         else{
-            console.log('SUCCESS!!!!');
             callback();
         }
     });
 }
 
 var authenticate = function(){
-    console.log('starting oauth sequence...');
+    $("body").animate({ scrollTop: 0 }, 500);
+    $("#authbox").fadeIn('slow');
+}
+
+var openAuthenticateBox = function(){
     window.open('./oauth','Connect with Twitter','menubar=no,location=no,resizable=yes,scrollbars=yes,status=yes,width=800,height=400');
+    hideAuthenticate();
+}
+
+var hideAuthenticate = function(){
+    $("#authbox").fadeOut('slow');
 }
 
 var clearList = function() {

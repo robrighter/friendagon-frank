@@ -366,3 +366,46 @@ em {
   margin: 0;
   text-align: center;
   font-size: 12px; }
+
+#authbox {
+  width: 400px;
+  height: 110px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  border: 6px solid;
+  border-color: #90d55c;
+  margin-left: 170px;
+  position: absolute;
+  top: 200px;
+  overflow: hidden;
+  padding: 25px;
+  display: none; }
+
+#authbox h1 {
+  font-size: 16px;
+  color: #58b33f; }
+
+#authbox p {
+  color: #666666; }
+
+#authbox img {
+  float: left;
+  cursor: pointer; }
+
+.cancellink {
+  float: left;
+  width: 60px;
+  font-size: 12px;
+  text-align: right;
+  margin-left: 155px;
+  color: #666666;
+  margin-right: 15px;
+  margin-top: 5px; }
+
+.cancellink a {
+  color: #666666;
+  text-decoration: underline;
+  cursor: pointer; }
