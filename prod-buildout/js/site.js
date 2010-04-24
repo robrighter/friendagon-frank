@@ -25,6 +25,7 @@ var setProfile = function(user){
 
 var unfollow = function(screenname,callback){
     $.getJSON('/__unfollow?screen_name='+screenname, function(data){
+        window.open('./oauth','Connect with Twitter','menubar=no,location=no,resizable=yes,scrollbars=yes,status=yes,width=800,height=400');
         console.log(data);
         if(data.error){
             console.log('The user is NOT authenticated');
