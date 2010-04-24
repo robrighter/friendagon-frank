@@ -24,7 +24,6 @@ var setProfile = function(user){
 };
 
 var unfollow = function(screenname,callback){
-    window.open('./oauth','Connect with Twitter','menubar=no,location=no,resizable=yes,scrollbars=yes,status=yes,width=800,height=400');
     $.getJSON('/__unfollow?screen_name='+screenname, function(data){
         console.log(data);
         if(data.error){
@@ -39,6 +38,7 @@ var unfollow = function(screenname,callback){
 }
 
 var authenticate = function(){
+    console.log('starting oauth sequence...');
     window.open('./oauth','Connect with Twitter','menubar=no,location=no,resizable=yes,scrollbars=yes,status=yes,width=800,height=400');
 }
 
