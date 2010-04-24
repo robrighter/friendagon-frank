@@ -9,6 +9,7 @@ var insertUser = function (user){
     template.find('.following .count').html(user.friends_count);
     template.find('.followers .count').html(user.followers_count);
     template.find('.minus').attr('onClick','unfollow("'+ user.screen_name +'",function() {notifyUnfollowed("'+user.screen_name+'");});');
+    template.find('.plus').attr('onClick','follow("'+ user.screen_name +'",function() {notifyFollowed("'+user.screen_name+'");});');
     $(template).appendTo('#userlist').hide().removeClass('template').addClass('added').addClass('userclass' + user.screen_name).show();
 }
 
@@ -34,10 +35,26 @@ var unfollow = function(screenname,callback){
     });
 }
 
+var follow = function(screenname,callback){
+    $.getJSON('/__follow?screen_name='+screenname, function(data){
+        if(data.error){
+            authenticate();
+        }
+        else{
+            callback();
+        }
+    });
+}
+
 var notifyUnfollowed = function(screen_name){
     $('.userclass' + screen_name).find('.notify').html('- Unfollowed');
     $('.userclass' + screen_name).addClass('unfolloweduser');
     $('.userclass' + screen_name + ' .name a').css('color', '#7C1316');
+}
+
+var notifyFollowed = function(screen_name){
+    $('.userclass' + screen_name).find('.notify').html('- Followed');
+    $('.userclass' + screen_name).addClass('followeduser');
 }
 
 var authenticate = function(){
