@@ -24,7 +24,6 @@ var setProfile = function(user){
 };
 
 var unfollow = function(screenname,callback){
-    authenticate();
     $.getJSON('/__unfollow?screen_name='+screenname, function(data){
         if(data.error){
             authenticate();
