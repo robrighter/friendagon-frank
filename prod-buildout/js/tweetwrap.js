@@ -12,6 +12,8 @@ var tweetWrap = function (screenname, initcallback, notifyprogress, abandon){
     this.userscreenname = screenname;
     this.notifyprogresscallback = notifyprogress;
     this.abandoncallback = abandon;
+    this.followbackprobability = 0;
+    this.topsyinfluence = 0;
     
     var progress = 0;
     
@@ -90,6 +92,7 @@ var tweetWrap = function (screenname, initcallback, notifyprogress, abandon){
            }
         });
         that.notifyprogresscallback(100,"All Done!");
+        that.followbackprobability = Math.round((that.reciprications.length / that.followers.length) * 100);
         initializationcallback();
          
     }
@@ -132,7 +135,17 @@ var tweetWrap = function (screenname, initcallback, notifyprogress, abandon){
             
     }
     
+    var getTopsyInfluence = function (screenname, callback){
+        $.getJSON('http://otter.topsy.com/authorinfo.json?&url=http://twitter.com/'+screenname + '&amp;callback=?', callback);
+    }
+    
     var init = function(){
+        //do the topsy info separately and assume it will come back before everything else
+        getTopsyInfluence(that.userscreenname, function(data){
+           that.topsyinfluence = data.response['influence_level']; 
+        });
+        
+        //now get the real information
         getUserDetailByScreenName(that.userscreenname,function(data){
             if(data.error){
                 that.abandoncallback(data.error);

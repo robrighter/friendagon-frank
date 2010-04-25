@@ -4,7 +4,7 @@ var tw;
 var insertUser = function (user){
     var template = $('.template').clone();
     template.find('.name a').html(user.screen_name);
-    template.find('.name a').attr('href' ,'http://twitter.com/'+user.screen_name);
+    template.find('.name a').attr('href' ,'http://friendagon.com/'+user.screen_name + '/');
     template.find('img').attr('src' ,user.profile_image_url);
     template.find('.following .count').html(user.friends_count);
     template.find('.followers .count').html(user.followers_count);
@@ -22,6 +22,9 @@ var setProfile = function(user){
     profile.find('.followbacks .count').html(tw.reciprications.length);
     profile.find('.fans .count').html(tw.fans.length);
     profile.find('.nofollowback .count').html(tw.toogoodforme.length);
+    profile.find('.details .followbackpercent .count').html(tw.followbackprobability + '%');
+    profile.find('.details .topsyinfluence .count').html(tw.topsyinfluence + '');
+    profile.find('.details').slideDown('slow');
 };
 
 var unfollow = function(screenname,callback){

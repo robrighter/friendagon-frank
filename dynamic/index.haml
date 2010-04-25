@@ -5,14 +5,20 @@
   #header
     %a{:href=>'/'}
       %img{:src=>'/images/logo.png',:id=>'logo'}
-    %div{:class=>'followus'}
-      %a{:href=>'http://www.twitter.com/friendagon'}
-        %img{:src=>'http://twitter-badges.s3.amazonaws.com/t_logo-b.png'}
-      %a{:href=>'http://www.twitter.com/friendagon'}
-        %span= 'follow us'
+    
 
   #profileinfo
     %div{:class=>'profile'}
+      %div{:class=>'details'}
+        %div{:class=>'followbackpercent'}
+          %div{:class=>'label'}= 'FOLLOWBACK LIKELIHOOD: '
+          %div{:class=>'count'}= '0%'
+        %div{:class=>'topsyinfluence'}
+          %div{:class=>'label'}= 'TOPSY INFLUENCE:'
+          %div{:class=>'count'}= '0'
+        %div{:class=>'followmanager'}  
+          %div{:class=>'follow'}= '+'
+          %div{:class=>'unfollow'}= '-'
       %img{:src=>'/images/spinner.gif'}
       %div{:class=>'name'}= 'Loading...'
       %div{:class=>'box nofollowback selected'}  
@@ -35,7 +41,7 @@
         %span{:class=>'count'}= '0'  
         %br
         %span= 'Followers'
-      %div{:class=>'tabline kill'}= ' '
+      %div{:class=>'tabline kill'}
 
   #errorbox
     %span= ''
