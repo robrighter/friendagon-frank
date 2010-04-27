@@ -489,3 +489,28 @@ em {
 
 .followeduser {
   background-color: #D8F2AC; }
+
+.tooltip, .profile .details .followbackpercent .tooltip, .profile .details .topsyinfluence .tooltip {
+  position: absolute;
+  width: 150px;
+  border: 2px solid;
+  border-color: #90d55c;
+  background-color: white;
+  margin-top: -60px;
+  margin-left: -36px;
+  text-transform: none;
+  font-size: 10px;
+  font-weight: normal;
+  padding: 5px;
+  -khtml-opacity: 0.7;
+  opacity: 0.7;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+  display: none; }
+
+.profile .details .followbackpercent .down, .profile .details .topsyinfluence .down {
+  margin-top: 35px;
+  margin-left: 0px;
+  width: 300px; }

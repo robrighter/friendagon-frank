@@ -16,6 +16,7 @@ $(document).ready(function() {
      $('.profile .following').addClass('selected');
    });
    
+   
    $('.profile .followers').bind('click', function() {
      replaceList(tw.followers);
      $('.profile .followers').addClass('selected');
@@ -47,6 +48,59 @@ $(document).ready(function() {
        $('.profile .details .unfollow').addClass('unfolloweduser');
       });
     });
-   
+    
+    //tooltips
+    $('.profile .following').bind('mouseenter', function() {
+        $('.profile .following .tooltip').fadeIn('fast');
+     });
+
+     $('.profile .following').bind('mouseleave', function() {
+        $('.profile .following .tooltip').fadeOut('fast');
+     });    
+     $('.profile .followers').bind('mouseenter', function() {
+        $('.profile .followers .tooltip').fadeIn('fast');
+     });
+
+     $('.profile .followers').bind('mouseleave', function() {
+        $('.profile .followers .tooltip').fadeOut('fast');
+     });    
+     $('.profile .fans').bind('mouseenter', function() {
+        $('.profile .fans .tooltip').fadeIn('fast');
+     });
+
+     $('.profile .fans').bind('mouseleave', function() {
+        $('.profile .fans .tooltip').fadeOut('fast');
+     });
+     $('.profile .followbacks').bind('mouseenter', function() {
+        $('.profile .followbacks .tooltip').fadeIn('fast');
+     });
+
+     $('.profile .followbacks').bind('mouseleave', function() {
+        $('.profile .followbacks .tooltip').fadeOut('fast');
+     });
+       
+     $('.profile .nofollowback').bind('mouseenter', function() {
+        $('.profile .nofollowback .tooltip').fadeIn('fast');
+     });
+
+     $('.profile .nofollowback').bind('mouseleave', function() {
+        $('.profile .nofollowback .tooltip').fadeOut('fast');
+     });
+     
+     $('.profile .details .followbackpercent').bind('mouseenter', function() {
+         $('.profile .details .followbackpercent .tooltip').fadeIn('fast');
+      });
+
+      $('.profile .details .followbackpercent').bind('mouseleave', function() {
+         $('.profile .details .followbackpercent .tooltip').fadeOut('fast');
+      });
+      $('.profile .details .topsyinfluence').bind('mouseenter', function() {
+           $('.profile .details .topsyinfluence .tooltip').fadeIn('fast');
+      });
+  
+      $('.profile .details .topsyinfluence').bind('mouseleave', function() {
+           $('.profile .details .topsyinfluence .tooltip').fadeOut('fast');
+      }); 
+                
  });
  

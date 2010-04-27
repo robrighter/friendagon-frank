@@ -11,9 +11,11 @@
     %div{:class=>'profile'}
       %div{:class=>'details'}
         %div{:class=>'followbackpercent'}
+          %div{:class=>'tooltip down'}= 'Probability that this person will follow you back if you follow them.'
           %div{:class=>'label'}= 'FOLLOWBACK LIKELIHOOD: '
           %div{:class=>'count'}= '0%'
         %div{:class=>'topsyinfluence'}
+          %div{:class=>'tooltip down'}= 'Influence Rating given by topsy.com (scale of 0-10)'
           %div{:class=>'label'}= 'TOPSY INFLUENCE:'
           %div{:class=>'count'}= '0'
         %div{:class=>'followmanager'}  
@@ -21,23 +23,28 @@
           %div{:class=>'unfollow'}= '-'
       %img{:src=>'/images/spinner.gif'}
       %div{:class=>'name'}= 'Loading...'
-      %div{:class=>'box nofollowback selected'}  
+      %div{:class=>'box nofollowback selected'}
+        %div{:class=>'tooltip'}= 'People this person follows but do not follow back.'  
         %span{:class=>'count'}= '0'
         %br
         %span= 'No Followback'
-      %div{:class=>'box followbacks'}  
+      %div{:class=>'box followbacks'}
+        %div{:class=>'tooltip'}= 'People this person follows and do follow back.'  
         %span{:class=>'count'}= '0'
         %br
         %span= 'Followbacks'
-      %div{:class=>'box fans'}  
+      %div{:class=>'box fans'}
+        %div{:class=>'tooltip'}= 'People that follow this person that this person does not follow.'  
         %span{:class=>'count'}= '0'
         %br
         %span= 'Fans'
       %div{:class=>'box following'}
+        %div{:class=>'tooltip'}= 'People this person follows.'
         %span{:class=>'count'}= '0'
         %br
         %span= 'Following'
-      %div{:class=>'box followers'}	
+      %div{:class=>'box followers'}
+        %div{:class=>'tooltip'}= 'People that are following this person.'	
         %span{:class=>'count'}= '0'  
         %br
         %span= 'Followers'

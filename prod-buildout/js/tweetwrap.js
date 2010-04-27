@@ -136,7 +136,7 @@ var tweetWrap = function (screenname, initcallback, notifyprogress, abandon){
     }
     
     var getTopsyInfluence = function (screenname, callback){
-        $.getJSON('http://otter.topsy.com/authorinfo.json?&url=http://twitter.com/'+screenname + '&amp;callback=?', callback);
+        $.getJSON('http://otter.topsy.com/authorinfo.js?&url=http://twitter.com/'+screenname + '&amp;callback=?', callback);
     }
     
     var init = function(){
