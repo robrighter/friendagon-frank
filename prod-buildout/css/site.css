@@ -14,6 +14,7 @@ a img {
 
 form {
   margin: 0px;
+  padding: 0px;
   display: inline; }
 
 #header {
@@ -291,27 +292,27 @@ em {
 
 #homesearch {
   margin-top: 170px;
-  width: 700px;
+  width: 786px;
   margin-left: auto;
   margin-right: auto; }
 
 #homesearch #logo {
   float: left;
-  margin-right: 20px;
-  margin-left: 20px;
+  margin-right: 25px;
+  margin-left: 0px;
   margin-top: 17px; }
 
 #homesearch .instructions {
   color: #2377BB;
-  font-size: 11px; }
+  font-size: 12px; }
 
 #homesearch .instructions .prompt {
   display: block;
   font-weight: bold; }
 
 #homesearch input {
-  height: 28px;
-  width: 330px;
+  height: 35px;
+  width: 370px;
   color: #2377BB;
   font-size: 24px;
   border: 3px solid #8EC1DA;
@@ -327,16 +328,16 @@ em {
   -webkit-border-radius: 5px;
   -khtml-border-radius: 5px;
   border-radius: 5px;
-  width: 40px;
-  height: 26px;
+  width: 100px;
+  height: 30px;
   text-align: center;
   float: right;
-  font-size: 20px;
+  font-size: 23px;
   padding-right: 10px;
   padding-left: 10px;
   padding-bottom: 0px;
-  padding-top: 8px;
-  margin-right: 20px;
+  padding-top: 12px;
+  margin-right: 4px;
   margin-top: 0px;
   cursor: pointer; }
 
@@ -514,3 +515,53 @@ em {
   margin-top: 35px;
   margin-left: 0px;
   width: 300px; }
+
+#holder {
+  margin-left: auto;
+  margin-right: auto;
+  width: 776px;
+  margin-top: 50px;
+  margin-bottom: 20px; }
+
+#footer {
+  margin-right: 1px;
+  color: #ffffff;
+  font-size: 10px;
+  width: 340px;
+  float: right;
+  text-align: center;
+  background-color: #8EC1DA;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px; }
+
+#footer a {
+  color: #2377BB;
+  text-decoration: none; }
+
+.loggedin {
+  background-color: #ffffff;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+  margin-top: 100px;
+  height: 110px;
+  border: 5px solid;
+  border-color: #90d55c;
+  color: #666666;
+  padding: 30px;
+  padding-top: 50px;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto; }
+
+.loggedin a {
+  color: #666666; }
+
+.loggedin h1 {
+  color: #58b33f;
+  font-size: 16px; }
