@@ -19,6 +19,24 @@ var tweetWrap = function (screenname, initcallback, notifyprogress, abandon){
     
     var that = this;
     
+    var notify = function () {
+        var tonotify = {
+            screenname: that.userscreenname,
+            followers: that.followers.length,
+            following: that.following.length,
+            followbacks: that.reciprications.length,
+            fans: that.fans.length,
+            nofollowback: that.toogoodforme.length,
+            location: that.personalprofile.location,
+            description: that.personalprofile.description,
+            topsyinfluence: that.topsyinfluence,
+            followbackprobability: that.followbackprobability,
+            created_at: that.personalprofile.created_at
+        };
+         
+        $.post("/__notify", tonotify );
+    }
+    
     var getFollowers = function (cursor){
         var timeout = setTimeout(function(){ 
              that.abandoncallback('The Twitter API is currently unavailable from your location. Please try again later.')}
@@ -94,6 +112,7 @@ var tweetWrap = function (screenname, initcallback, notifyprogress, abandon){
         that.notifyprogresscallback(100,"All Done!");
         that.followbackprobability = Math.round((that.reciprications.length / that.followers.length) * 100);
         initializationcallback();
+        notify();
          
     }
     

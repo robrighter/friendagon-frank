@@ -39,13 +39,13 @@ $(document).ready(function() {
    
    $('.profile .details .follow').bind('click', function() {
       follow(tw.userscreenname, function(){
-          $('.profile .details .follow').addClass('followeduser');
+          $('.profile .details .follow').css('background-color', '#D8F2AC');
       });
     });
    
     $('.profile .details .unfollow').bind('click', function() {
        unfollow(tw.userscreenname, function(){
-       $('.profile .details .unfollow').addClass('unfolloweduser');
+       $('.profile .details .unfollow').css('background-color', '#E59B97');
       });
     });
     

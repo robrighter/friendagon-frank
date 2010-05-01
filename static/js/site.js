@@ -3,7 +3,7 @@ var tw;
 
 var insertUser = function (user){
     var template = $('.template').clone();
-    template.find('.name a').html(user.screen_name);
+    template.find('.name a').html(user.screen_name + '<span><strong>' + user.location + '</strong><br/>' + user.description + '</span>');
     template.find('.name a').attr('href' ,'http://friendagon.com/'+user.screen_name + '/');
     template.find('img').attr('src' ,user.profile_image_url);
     template.find('.following .count').html(user.friends_count);
@@ -25,6 +25,7 @@ var setProfile = function(user){
     profile.find('.details .followbackpercent .count').html(tw.followbackprobability + '%');
     profile.find('.details .topsyinfluence .count').html(tw.topsyinfluence + '');
     profile.find('.details').slideDown('slow');
+    document.title = user.name + ' - Friendagon'
 };
 
 var unfollow = function(screenname,callback){
