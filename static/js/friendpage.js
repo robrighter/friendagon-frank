@@ -112,10 +112,21 @@ $(document).ready(function() {
           return false;
       });
       
+      var comparestate = false;
       $('.profile #compare #tab').bind('click', function() {
-            $('.profile #compare').animate({
-                top: '0px'
-            }, 400, 'linear');
+            if(comparestate){
+                //slide up
+                $('.profile #compare').animate({
+                    top: '-52px'
+                }, 400, 'swing', function(){comparestate = false;});
+            }
+            else{
+                //slide down
+                $('.profile #compare').animate({
+                    top: '0px'
+                }, 400, 'swing', function(){comparestate = true;});
+            }
+            
       });   
        
                 

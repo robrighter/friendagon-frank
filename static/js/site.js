@@ -26,6 +26,7 @@ var setProfile = function(user){
     profile.find('.details .followbackpercent .count').html(tw.followbackprobability + '%');
     profile.find('.details .topsyinfluence .count').html(tw.topsyinfluence + '');
     profile.find('.details').slideDown('slow');
+    profile.find('#compare').slideDown('slow');
     document.title = user.name + ' - Friendagon'
 };
 
