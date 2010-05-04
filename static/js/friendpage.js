@@ -100,7 +100,24 @@ $(document).ready(function() {
   
       $('.profile .details .topsyinfluence').bind('mouseleave', function() {
            $('.profile .details .topsyinfluence .tooltip').fadeOut('fast');
-      }); 
+      });
+      
+      //compare
+      $('.profile #compare #gocompare').bind('click', function() {
+          startCompare();
+      });
+
+      $('.profile #compare form').submit(function(){
+          startCompare();
+          return false;
+      });
+      
+      $('.profile #compare #tab').bind('click', function() {
+            $('.profile #compare').animate({
+                top: '0px'
+            }, 400, 'linear');
+      });   
+       
                 
  });
  

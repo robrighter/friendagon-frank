@@ -1,5 +1,6 @@
 //50506
 var tw;
+var twcompare;
 
 var insertUser = function (user){
     var template = $('.template').clone();
@@ -101,6 +102,11 @@ var setStatusBar = function(percent, message){
     $('#progressstatus span').html( (message || '') );
 }
 
+var setMiniStatusBar = function(percent, message){
+    $('#miniprogressbar').css('width', (percent+'%'));
+    $('#miniprogressstatus span').html( (message || '') );
+}
+
 var showError = function(error){
     var profile = $('.profile');
     profile.find('.name').html(theuser);
@@ -109,3 +115,24 @@ var showError = function(error){
     $('#progressbox').slideUp('slow');
     $('#errorbox').slideDown('slow');
 }
+
+var startCompare = function(){
+    if(twcompare && (twcompare.userscreenname == $('.profile #compare input').val())){
+        //do nothing
+    }
+    else{
+        //calculate the graph of twcompare
+        compareuser = $('.profile #compare input').val();
+        $('#miniprogressbox').slideDown('slow');
+        twcompare = new tweetWrap(compareuser, function(){
+            $('#miniprogressbox').slideUp('slow');
+            $('#compare #controls').slideDown('slow');
+        },
+        function(progress, status){
+            setMiniStatusBar(progress, status);
+        },
+        function(error){
+            showMiniError(error);
+        });
+    }  
+};

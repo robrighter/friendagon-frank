@@ -9,6 +9,30 @@
 
   #profileinfo
     %div{:class=>'profile'}
+      #compare
+        %strong= 'Compare to:'
+        %form
+          %input{:type=>'text',id=>'q',:value=>'TwitterName',:onfocus=>'this.value=""'}
+          %div{:id=>'gocompare'}= 'GO'
+        #miniprogressbox
+          #miniprogressoutline
+            #miniprogressbar
+          #miniprogressstatus
+            %span= 'Calculating Social Graph...'
+        %ul{:id=>'controls'}
+          %li
+            %a{:onClick=>'markNoFollowbacks()',:href=>'#'}= 'Mark all No Followbacks'
+          %li
+            %a{:onClick=>'markFollowbacks()',:href=>'#'}= 'Mark all Followbacks'
+          %li
+            %a{:onClick=>'markFans()',:href=>'#'}= 'Mark all Fans'
+          %li
+            %a{:onClick=>'markFollowing()',:href=>'#'}= 'Mark all Following'
+          %li
+            %a{:onClick=>'markFollowers()',:href=>'#'}= 'Mark all Followers'
+        #tab
+          %span= 'Compare'
+		
       %div{:class=>'details'}
         %div{:class=>'followbackpercent'}
           %div{:class=>'tooltip down'}= 'Probability that this person will follow you back if you follow them.'

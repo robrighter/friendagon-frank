@@ -21,6 +21,41 @@
         </div>
         <div id='profileinfo'>
           <div class='profile'>
+            <div id='compare'>
+              <strong>Compare to:</strong>
+              <form>
+                <input 2159774740='q' onfocus='this.value=""' type='text' value='TwitterName' />
+                <div id='gocompare'>GO</div>
+              </form>
+              <div id='miniprogressbox'>
+                <div id='miniprogressoutline'>
+                  <div id='miniprogressbar'></div>
+                </div>
+                <div id='miniprogressstatus'>
+                  <span>Calculating Social Graph...</span>
+                </div>
+              </div>
+              <ul id='controls'>
+                <li>
+                  <a href='#' onClick='markNoFollowbacks()'>Mark all No Followbacks</a>
+                </li>
+                <li>
+                  <a href='#' onClick='markFollowbacks()'>Mark all Followbacks</a>
+                </li>
+                <li>
+                  <a href='#' onClick='markFans()'>Mark all Fans</a>
+                </li>
+                <li>
+                  <a href='#' onClick='markFollowing()'>Mark all Following</a>
+                </li>
+                <li>
+                  <a href='#' onClick='markFollowers()'>Mark all Followers</a>
+                </li>
+              </ul>
+              <div id='tab'>
+                <span>Compare</span>
+              </div>
+            </div>
             <div class='details'>
               <div class='followbackpercent'>
                 <div class='tooltip down'>Probability that this person will follow you back if you follow them.</div>
