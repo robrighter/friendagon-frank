@@ -117,7 +117,7 @@ $(document).ready(function() {
             if(comparestate){
                 //slide up
                 $('.profile #compare').animate({
-                    top: '-52px'
+                    top: ('-' + ($('.profile #compare').height() + 11)+'px')//'-52px'
                 }, 400, 'swing', function(){comparestate = false;});
             }
             else{
@@ -127,8 +127,13 @@ $(document).ready(function() {
                 }, 400, 'swing', function(){comparestate = true;});
             }
             
-      });   
-       
-                
+      });
+      
+      $('#marknofollowbacks').bind('click', markNoFollowbacks);
+      $('#markfollowbacks').bind('click', markFollowbacks);
+      $('#marknfans').bind('click', markFans);
+      $('#markfollowers').bind('click', markFollowers);
+      $('#markfollowing').bind('click', markFollowing);   
+                  
  });
  

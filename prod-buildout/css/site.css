@@ -115,7 +115,7 @@ em {
   position: absolute;
   color: black;
   width: 160px;
-  top: -52px;
+  top: -51px;
   font-size: 9px;
   margin-left: 245px;
   margin-top: -8px;
@@ -124,7 +124,9 @@ em {
   -webkit-border-radius: 5px;
   -khtml-border-radius: 5px;
   border-radius: 5px;
-  border: 3px solid;
+  border-left: 3px solid;
+  border-right: 3px solid;
+  border-bottom: 5px solid;
   border-color: #90D55C;
   padding: 7px;
   display: none; }
@@ -174,7 +176,7 @@ em {
   -khtml-border-radius: 3px;
   border-radius: 3px;
   width: 70px;
-  height: 31px;
+  height: 32px;
   color: #FFFFFF;
   font-weight: bold;
   text-transform: uppercase;
@@ -226,7 +228,6 @@ em {
   margin-left: 5px;
   margin-right: 5px;
   text-align: center;
-  background-color: #cccccc;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   -khtml-border-radius: 2px;
@@ -235,12 +236,18 @@ em {
   font-size: 9px;
   font-weight: bold; }
 
-#compare #controls li:hover, #compare #controls li .selected {
+#compare #controls li:hover {
   background-color: #90d55c; }
 
-#compare #controls a {
-  text-decoration: none;
-  color: #fff; }
+.selected {
+  background-color: #90d55c; }
+
+.unselected {
+  background-color: #cccccc; }
+
+#compare #controls li {
+  color: #fff;
+  cursor: pointer; }
 
 .profile .details {
   position: absolute;
@@ -651,6 +658,9 @@ em {
 
 .followeduser {
   background-color: #D8F2AC; }
+
+.markeduser {
+  background-color: #CEA4C3; }
 
 .tooltip, .profile .details .followbackpercent .tooltip, .profile .details .topsyinfluence .tooltip {
   position: absolute;

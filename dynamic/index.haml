@@ -20,16 +20,16 @@
           #miniprogressstatus
             %span= 'Calculating Social Graph...'
         %ul{:id=>'controls'}
-          %li
-            %a{:onClick=>'markNoFollowbacks()',:href=>'#'}= 'Mark all No Followbacks'
-          %li
-            %a{:onClick=>'markFollowbacks()',:href=>'#'}= 'Mark all Followbacks'
-          %li
-            %a{:onClick=>'markFans()',:href=>'#'}= 'Mark all Fans'
-          %li
-            %a{:onClick=>'markFollowing()',:href=>'#'}= 'Mark all Following'
-          %li
-            %a{:onClick=>'markFollowers()',:href=>'#'}= 'Mark all Followers'
+          %li{:id=>'marknofollowbacks',:class=>'unselected'}
+            %span= 'Mark all No Followbacks'
+          %li{:id=>'markfollowbacks',:class=>'unselected'}
+            %span= 'Mark all Followbacks'
+          %li{:id=>'markfans',:class=>'unselected'}
+            %span= 'Mark all Fans'
+          %li{:id=>'markfollowing',:class=>'unselected'}
+            %span= 'Mark all Following'
+          %li{:id=>'markfollowers',:class=>'unselected'}
+            %span= 'Mark all Followers'
         #tab
           %span= 'Compare'
 		

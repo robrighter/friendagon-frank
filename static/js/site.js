@@ -2,6 +2,14 @@
 var tw;
 var twcompare;
 
+var marked = new function(){
+    this.nofollowbacks = false;
+    this.followbacks = false;
+    this.fans = false;
+    this.following = false;
+    this.follers = false;
+}
+
 var insertUser = function (user){
     var template = $('.template').clone();
     template.find('.name a').html(user.screen_name + '<span><strong>' + user.location + '</strong><br/>' + user.description + '</span>');
@@ -122,12 +130,16 @@ var startCompare = function(){
         //do nothing
     }
     else{
+        //Show the progress bar and clear out any controls that may be visible
+        $('#miniprogressbox').slideDown('slow');
+        $('#compare #controls').slideUp('slow');
         //calculate the graph of twcompare
         compareuser = $('.profile #compare input').val();
         $('#miniprogressbox').slideDown('slow');
         twcompare = new tweetWrap(compareuser, function(){
             $('#miniprogressbox').slideUp('slow');
             $('#compare #controls').slideDown('slow');
+            setMiniStatusBar(0, 'Calculating...');
         },
         function(progress, status){
             setMiniStatusBar(progress, status);
@@ -137,3 +149,74 @@ var startCompare = function(){
         });
     }  
 };
+
+var markNoFollowbacks = function(){
+    if(marked.nofollowbacks){
+        _.map(twcompare.toogoodforme, unmarkUser);
+        $('#marknofollowbacks').removeClass('selected');
+    }
+    else{
+        _.map(twcompare.toogoodforme, markUser);
+        $('#marknofollowbacks').addClass('selected');
+    }
+    marked.nofollowbacks = !marked.nofollowbacks;
+}
+
+var markFollowbacks = function(){
+    if(marked.followbacks){
+        _.map(twcompare.followbacks, unmarkUser);
+        $('#markfollowbacks').removeClass('selected');
+    }
+    else{
+        _.map(twcompare.followbacks, markUser);
+        $('#markfollowbacks').addClass('selected');
+    }
+    marked.followbacks = !marked.followbacks;
+}
+
+var markFans = function(){
+    if(marked.fans){
+        _.map(twcompare.fans, unmarkUser);
+        $('#markfans').removeClass('selected');
+    }
+    else{
+        _.map(twcompare.fans, markUser);
+        $('#markfans').addClass('selected');
+    }
+    marked.fans = !marked.fans;
+}
+
+var markFollowers = function(){
+    if(marked.followers){
+        _.map(twcompare.followers, unmarkUser);
+        $('#markfollowers').removeClass('selected');
+    }
+    else{
+        _.map(twcompare.followers, markUser);
+        $('#markfollowers').addClass('selected');
+    }
+    marked.followers = !marked.followers;
+}
+
+var markFollowing = function(){
+    if(marked.following){
+        _.map(twcompare.following, unmarkUser);
+        $('#markfollowing').removeClass('selected');
+    }
+    else{
+        _.map(twcompare.following, markUser);
+        $('#markfollowing').addClass('selected');
+    }
+    marked.following = !marked.following;
+}
+
+var markUser = function(user){
+    $('.userclass' + user.screen_name + ' .name a').css('color', '#62146C');
+    $('.userclass' + user.screen_name).addClass('markeduser');
+}
+
+var unmarkUser = function(user){
+    $('.userclass' + user.screen_name + ' .name a').css('color', '#58B33F');
+    $('.userclass' + user.screen_name).removeClass('markeduser');
+}
+
