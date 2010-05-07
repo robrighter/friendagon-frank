@@ -126,10 +126,10 @@ var showError = function(error){
 }
 
 var startCompare = function(){
-    if(twcompare && (twcompare.userscreenname == $('.profile #compare input').val())){
+    //if(twcompare && (twcompare.userscreenname == $('.profile #compare input').val())){
         //do nothing
-    }
-    else{
+    //}
+    //else{
         //Show the progress bar and clear out any controls that may be visible
         $('#miniprogressbox').slideDown('slow');
         $('#compare #controls').slideUp('slow');
@@ -147,7 +147,7 @@ var startCompare = function(){
         function(error){
             showMiniError(error);
         });
-    }  
+    //}  
 };
 
 var markNoFollowbacks = function(){
@@ -164,11 +164,11 @@ var markNoFollowbacks = function(){
 
 var markFollowbacks = function(){
     if(marked.followbacks){
-        _.map(twcompare.followbacks, unmarkUser);
+        _.map(twcompare.reciprications, unmarkUser);
         $('#markfollowbacks').removeClass('selected');
     }
     else{
-        _.map(twcompare.followbacks, markUser);
+        _.map(twcompare.reciprications, markUser);
         $('#markfollowbacks').addClass('selected');
     }
     marked.followbacks = !marked.followbacks;

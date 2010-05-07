@@ -131,7 +131,7 @@ $(document).ready(function() {
       
       $('#marknofollowbacks').bind('click', markNoFollowbacks);
       $('#markfollowbacks').bind('click', markFollowbacks);
-      $('#marknfans').bind('click', markFans);
+      $('#markfans').bind('click', markFans);
       $('#markfollowers').bind('click', markFollowers);
       $('#markfollowing').bind('click', markFollowing);   
                   
