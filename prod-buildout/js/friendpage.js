@@ -129,11 +129,11 @@ $(document).ready(function() {
             
       });
       
-      $('#marknofollowbacks').bind('click', markNoFollowbacks);
-      $('#markfollowbacks').bind('click', markFollowbacks);
-      $('#markfans').bind('click', markFans);
-      $('#markfollowers').bind('click', markFollowers);
-      $('#markfollowing').bind('click', markFollowing);   
+      $('#marknofollowbacks').bind('click', function(){markNoFollowbacks(true);});
+      $('#markfollowbacks').bind('click', function(){markFollowbacks(true);});
+      $('#markfans').bind('click', function(){markFans(true);});
+      $('#markfollowers').bind('click', function(){markFollowers(true);});
+      $('#markfollowing').bind('click', function(){markFollowing(true);});   
                   
  });
  

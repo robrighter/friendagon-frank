@@ -7,7 +7,7 @@ var marked = new function(){
     this.followbacks = false;
     this.fans = false;
     this.following = false;
-    this.follers = false;
+    this.followers = false;
 }
 
 var insertUser = function (user){
@@ -95,7 +95,7 @@ var populateList = function(list){
     _.map(list,function(item){
               insertUser(item);
     });
-    setTimeout("$('#userlist').slideDown('slow');",1);
+    setTimeout("$('#userlist').slideDown('slow');applyAllMarks();",1);
     
 }
 
@@ -150,8 +150,21 @@ var startCompare = function(){
     //}  
 };
 
-var markNoFollowbacks = function(){
-    if(marked.nofollowbacks){
+var applyAllMarks = function(){
+    if(marked.nofollowbacks)
+        markNoFollowbacks(false);
+    if(marked.followbacks)
+        markFollowbacks(false);
+    if(marked.fans)
+        markFans(false);
+    if(marked.following)
+        markFollowing(false);
+    if(marked.followers)
+        markFollowers(false);
+}
+
+var markNoFollowbacks = function(toggle){
+    if(toggle && marked.nofollowbacks){
         _.map(twcompare.toogoodforme, unmarkUser);
         $('#marknofollowbacks').removeClass('selected');
     }
@@ -159,11 +172,12 @@ var markNoFollowbacks = function(){
         _.map(twcompare.toogoodforme, markUser);
         $('#marknofollowbacks').addClass('selected');
     }
-    marked.nofollowbacks = !marked.nofollowbacks;
+    if(toggle)
+        marked.nofollowbacks = !marked.nofollowbacks;
 }
 
-var markFollowbacks = function(){
-    if(marked.followbacks){
+var markFollowbacks = function(toggle){
+    if(toggle && marked.followbacks){
         _.map(twcompare.reciprications, unmarkUser);
         $('#markfollowbacks').removeClass('selected');
     }
@@ -171,11 +185,12 @@ var markFollowbacks = function(){
         _.map(twcompare.reciprications, markUser);
         $('#markfollowbacks').addClass('selected');
     }
-    marked.followbacks = !marked.followbacks;
+    if(toggle)
+        marked.followbacks = !marked.followbacks;
 }
 
-var markFans = function(){
-    if(marked.fans){
+var markFans = function(toggle){
+    if(toggle && marked.fans){
         _.map(twcompare.fans, unmarkUser);
         $('#markfans').removeClass('selected');
     }
@@ -183,11 +198,12 @@ var markFans = function(){
         _.map(twcompare.fans, markUser);
         $('#markfans').addClass('selected');
     }
-    marked.fans = !marked.fans;
+    if(toggle)
+        marked.fans = !marked.fans;
 }
 
-var markFollowers = function(){
-    if(marked.followers){
+var markFollowers = function(toggle){
+    if(toggle && marked.followers){
         _.map(twcompare.followers, unmarkUser);
         $('#markfollowers').removeClass('selected');
     }
@@ -195,11 +211,12 @@ var markFollowers = function(){
         _.map(twcompare.followers, markUser);
         $('#markfollowers').addClass('selected');
     }
-    marked.followers = !marked.followers;
+    if(toggle)
+        marked.followers = !marked.followers;
 }
 
-var markFollowing = function(){
-    if(marked.following){
+var markFollowing = function(toggle){
+    if(toggle && marked.following){
         _.map(twcompare.following, unmarkUser);
         $('#markfollowing').removeClass('selected');
     }
@@ -207,7 +224,8 @@ var markFollowing = function(){
         _.map(twcompare.following, markUser);
         $('#markfollowing').addClass('selected');
     }
-    marked.following = !marked.following;
+    if(toggle)
+        marked.following = !marked.following;
 }
 
 var markUser = function(user){
