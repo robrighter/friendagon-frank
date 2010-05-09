@@ -85,10 +85,12 @@
 
   #userlist
     %div{:class=>'user template'}
-      %img{:src=>'http://a1.twimg.com/profile_images/79569518/eagle_bigger.jpg'}
+      %img{:class=>'avatar',:src=>'http://a1.twimg.com/profile_images/79569518/eagle_bigger.jpg'}
       %div{:class=>'name'}
-        %a{:href=>'#'}= 'montytwitter'
+        %a{:href=>'#',:class=>'friendagonlink'}= 'montytwitter'
         %span{:class=>'notify'}
+        %a{:href=>'#',:class=>'twitterlink'}
+          %img{:src=>'/images/opentwitter.png'}
       %div{:class=>'following'}
         %span= 'following: '
         %span{:class=>'count'}= '245'
