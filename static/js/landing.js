@@ -40,5 +40,5 @@ function getupdate(since){
 }
 
 function recentmarkup(data){
-    return "<div class='item' stype='display:none;'><a href='http://friendagon/"+data.screenname+"' ><img src='"+data.profile_image_url+"' /></a></div>";
+    return "<div class='item' stype='display:none;'><a href='/"+data.screenname+"' ><img src='"+data.profile_image_url+"' /></a></div>";
 }
