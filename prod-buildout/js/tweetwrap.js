@@ -19,6 +19,8 @@ var tweetWrap = function (screenname, initcallback, notifyprogress, abandon){
     
     var that = this;
     
+    var timeoutlength = 20000;
+    
     var notify = function () {
         var tonotify = {
             screenname: that.userscreenname,
@@ -41,7 +43,7 @@ var tweetWrap = function (screenname, initcallback, notifyprogress, abandon){
     var getFollowers = function (cursor){
         var timeout = setTimeout(function(){ 
              that.abandoncallback('The Twitter API is currently unavailable from your location. Please try again later.')}
-             ,9000);
+             ,timeoutlength);
         $.ajax({
             'url': ('http://api.twitter.com/1/statuses/followers.json?callback=?&screen_name='+ that.userscreenname +'&cursor='+cursor),
             success: function(result) {
@@ -66,7 +68,7 @@ var tweetWrap = function (screenname, initcallback, notifyprogress, abandon){
     var getFollowing = function (cursor){  
         var timeout = setTimeout(function(){ 
              that.abandoncallback('The Twitter API is currently unavailable from your location. Please try again later.')}
-             ,9000);
+             ,timeoutlength);
         $.ajax({
             'url': ('http://api.twitter.com/1/statuses/friends.json?callback=?&screen_name='+ that.userscreenname + '&cursor=' + cursor),
             success: function(result) {
@@ -136,7 +138,7 @@ var tweetWrap = function (screenname, initcallback, notifyprogress, abandon){
          var diderror = true;
          var timeout = setTimeout(function(){ 
              that.abandoncallback('Either the user does not exist or the Twitter API is unavailable. Please try again later.')}
-             ,9000);
+             ,timeoutlength);
              
          $.ajax({
                 'url': ('http://api.twitter.com/1/users/show.json?callback=?&screen_name='+screenname),
