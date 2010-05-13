@@ -31,7 +31,8 @@ var tweetWrap = function (screenname, initcallback, notifyprogress, abandon){
             description: that.personalprofile.description,
             topsyinfluence: that.topsyinfluence,
             followbackprobability: that.followbackprobability,
-            created_at: that.personalprofile.created_at
+            created_at: that.personalprofile.created_at,
+            profile_image_url: that.personalprofile.profile_image_url
         };
          
         $.post("/__notify", tonotify );
