@@ -336,12 +336,12 @@ em {
 .user .name {
   margin-top: 3px; }
 
-.user .name a {
+.user .name a, #recent .item a {
   color: #58b33f;
   font-weight: bold;
   text-decoration: none; }
 
-.user .name a span {
+.user .name a span, #recent .item a span {
   font-size: 11px;
   color: #000000;
   font-weight: normal;
@@ -351,12 +351,12 @@ em {
   width: 200px;
   line-height: 14px; }
 
-.user .name a span strong {
+.user .name a span strong, #recent .item a span strong {
   font-weight: bold;
   font-size: 13px;
   color: #58b33f; }
 
-.user .name a:hover span {
+.user .name a:hover span, #recent .item a:hover span {
   display: inline;
   position: absolute;
   border: 2px solid;
@@ -418,6 +418,25 @@ em {
   font-size: 15px;
   color: #ffffff;
   float: left; }
+
+.user .button .tooltip {
+  display: none;
+  color: #000000;
+  position: absolute;
+  width: 42px;
+  margin-top: -40px;
+  margin-left: -14px;
+  font-size: 9px; }
+
+.user .button .icon {
+  position: absolute;
+  margin-left: 11px;
+  display: block;
+  width: 10px; }
+
+.user .button:hover .tooltip {
+  display: inline;
+  position: absolute; }
 
 .user .button:hover {
   background-color: #90D55C; }
