@@ -423,9 +423,10 @@ em {
   display: none;
   color: #000000;
   position: absolute;
-  width: 42px;
+  width: 50px;
   margin-top: -40px;
-  margin-left: -14px;
+  margin-left: 0px;
+  left: 10px;
   font-size: 9px; }
 
 .user .button .icon {
